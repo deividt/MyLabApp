@@ -1,4 +1,6 @@
+using System.Linq;
 using FluentAssertions;
+using MyLabApp.Views;
 using Xamarin.Forms;
 using Xunit;
 
@@ -22,11 +24,12 @@ namespace MyLabApp.Tests
             var navigationStack = Application.Current.MainPage.Navigation.NavigationStack;
             
             // Act
+            var currentPage = navigationStack.Last();
             var numberPages = navigationStack.Count;
             
             // Assert
-            numberPages.Should().Be(0);
-            Application.Current.MainPage.Should().BeOfType<MainPage>();
+            numberPages.Should().Be(1);
+            currentPage.Should().BeOfType<BlankView>();
         }
     }
 }
