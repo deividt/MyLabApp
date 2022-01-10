@@ -1,4 +1,8 @@
-﻿using MyLabApp.ViewModels;
+﻿using System;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using MyLabApp.ViewModels;
 using MyLabApp.Views;
 using Prism;
 using Prism.DryIoc;
@@ -28,6 +32,11 @@ namespace MyLabApp
 
         protected override void OnStart()
         {
+            base.OnStart();
+
+            AppCenter.Start($"android={AppSecrets.App_Center_Android_Key};" +
+                            $"ios={AppSecrets.App_Center_Ios_Key};",
+                typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
