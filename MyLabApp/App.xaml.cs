@@ -1,5 +1,4 @@
-﻿using System;
-using MyLabApp.ViewModels;
+﻿using MyLabApp.ViewModels;
 using MyLabApp.Views;
 using Prism;
 using Prism.DryIoc;
