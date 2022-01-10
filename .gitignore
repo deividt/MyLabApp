@@ -351,3 +351,8 @@ MigrationBackup/
 
 # JetBrains Rider IDE
 .idea/
+
+
+# Mobile.BuildTools
+appsettings.json
+appsettings.*.json
