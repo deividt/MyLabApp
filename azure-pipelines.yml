@@ -6,22 +6,25 @@
 trigger:
 - dev
 
-pool:
-  vmImage: 'macos-latest'
+jobs:
 
-variables:
-  buildConfiguration: 'Release'
-  outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
+  - job: Android
+    pool:
+      vmImage: 'macos-latest'
 
-steps:
-- task: NuGetToolInstaller@1
+    variables:
+      buildConfiguration: 'Release'
+      outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '**/*.sln'
+    steps:
+    - task: NuGetToolInstaller@1
 
-- task: XamarinAndroid@1
-  inputs:
-    projectFile: '**/*droid*.csproj'
-    outputDirectory: '$(outputDirectory)'
-    configuration: '$(buildConfiguration)'
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '**/*.sln'
+
+    - task: XamarinAndroid@1
+      inputs:
+        projectFile: '**/*droid*.csproj'
+        outputDirectory: '$(outputDirectory)'
+        configuration: '$(buildConfiguration)'
