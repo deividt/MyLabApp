@@ -8,6 +8,17 @@ trigger:
 
 jobs:
 
+  - job: Tests
+    pool:
+      vmImage: 'windows-latest'
+
+    steps:
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'test'
+        projects: '**/**.Tests.csproj'
+        arguments: '/p:Configuration=Release'
+
   - job: Android
     pool:
       vmImage: 'macos-latest'
