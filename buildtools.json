@@ -3,11 +3,15 @@
   "appSettings": {
     "MyLabApp": [
       {
-        "className": "AppConstants",
+        "className": "AppSecrets",
         "namespace": ".",
         "properties": [
           {
-            "name": "Message",
+            "name": "App_Center_Android_Key",
+            "type": "String"
+          },
+          {
+            "name": "App_Center_Ios_Key",
             "type": "String"
           }
         ]

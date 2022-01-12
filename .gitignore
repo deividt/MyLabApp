@@ -356,3 +356,5 @@ MigrationBackup/
 # Mobile.BuildTools
 appsettings.json
 appsettings.*.json
+
+.DS_Store
